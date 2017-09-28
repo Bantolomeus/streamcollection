@@ -35,8 +35,17 @@ class CollectionOperations {
             return map.map { it.value.toLowerCase() }.map { it.length }
         }
 
-//        return map.map { it.value.toLowerCase() }.map { it.any{ it.isLowerCase()}length }
+        fun checkIfMutableMapStringToStringValuesCharsAreLowerCaseAfterMappingToLowerCase(map: MutableMap<String, String>): List<Boolean> {
+            return map.map { it.value.toLowerCase() }.map { it.any{ it.isLowerCase()}}
+        }
 
+        fun filterMutableMapStringToStringValuesWhereAtLeastOneCharInValueIsLowerCaseAndFinallyCheckIfAllCharsAreInLowerCase(map: MutableMap<String, String>): List<Boolean> {
+            return map.filter { it.value.any{ it.isLowerCase() } }.map { it.value }.map { it.any{ it.isLowerCase()} }
+        }
+
+        fun filterMutableMapStringToStringValuesIfAllCharsAreLowerCase(map: MutableMap<String, String>): List<Boolean> {
+            return map.filter { it.value.all{ it.isLowerCase() } }.map { it.value }.map { it.all{ it.isLowerCase()} }
+        }
 
     }
 }

@@ -32,4 +32,13 @@ fun main(args: Array<String>) {
 
     println("map values to lower case and then count the length of every value")
     println(CollectionOperations.countMutableMapStringToStringValuesLengthAfterMapThemToLowerCase(CollectionData.fillOutMapOfStringToString()))
+
+    println("check if all chars of the values are in lowercase after mapping the values to lowercase")
+    println(CollectionOperations.checkIfMutableMapStringToStringValuesCharsAreLowerCaseAfterMappingToLowerCase(CollectionData.fillOutMapOfStringToString()))
+
+    println("filter all pairs where the value has at least one char in lower case and then look if all chars are in lower case")
+    println(CollectionOperations.filterMutableMapStringToStringValuesWhereAtLeastOneCharInValueIsLowerCaseAndFinallyCheckIfAllCharsAreInLowerCase(CollectionData.fillOutMapOfStringToString()))
+
+    println("filter all pairs where the value has only lower case chars")
+    println(CollectionOperations.filterMutableMapStringToStringValuesIfAllCharsAreLowerCase(CollectionData.fillOutMapOfStringToString()))
 }
