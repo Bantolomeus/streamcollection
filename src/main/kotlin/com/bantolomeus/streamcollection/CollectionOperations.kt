@@ -47,5 +47,38 @@ class CollectionOperations {
             return map.filter { it.value.all{ it.isLowerCase() } }.map { it.value }.map { it.all{ it.isLowerCase()} }
         }
 
+        fun sumUpAListOfInt(): Int {
+            return listOf(1,2,3,4,5,6,7,8,9).fold(0, { count, next -> count + next })
+        }
+
+        fun sumsUpMutableMapStringToStringKeys(map: MutableMap<String, String>): Int {
+            return map.filter { it.key.all{ it.isDigit()} }.map { it.key.toInt() }.fold(0, { sum, next -> sum + next})
+        }
+
+        fun sumsUpMutableMapStringToStringKeysFromEndToStart(map: MutableMap<String, String>): Int {
+            return map.filter { it.key.all{ it.isDigit()} }.map { it.key.toInt() }.foldRight(0, { sum, next -> sum + next})
+        }
+
+        fun sumsUpMutableMapStringToStringKeysAndValues(map: MutableMap<String, String>): Int {
+            return convertMapKeysToList(map.filter { it.key.all{ it.isDigit()} })
+                    .plus(convertMapValuesToList(map.filter { it.value.all{ it.isDigit()} }))
+                    .map { it.toInt() }
+                    .fold(0, { sum, next -> sum + next})
+        }
+
+        private fun convertMapValuesToList(map: Map<String,String>): MutableList<String> {
+            return map.values.toMutableList()
+        }
+
+        private fun convertMapKeysToList(map: Map<String,String>): MutableList<String> {
+            return map.keys.toMutableList()
+        }
+
+        fun filterStringsOutOfMutableMapAnyToAny(map: MutableMap<Any, Any>): List<String> {
+            return map.filter{ it.key is String }.map { it.key.toString()}.plus(map.filter { it.value is String }.map { it.value.toString() })
+        }
+
+
+
     }
 }

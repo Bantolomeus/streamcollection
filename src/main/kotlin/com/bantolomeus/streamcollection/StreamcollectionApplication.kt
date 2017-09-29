@@ -9,7 +9,7 @@ class StreamcollectionApplication
 fun main(args: Array<String>) {
     SpringApplication.run(StreamcollectionApplication::class.java, *args)
 
-    println("input")
+    println("input(keys = string, values = string):")
     println(CollectionData.fillOutMapOfStringToString())
 
     println("count Keys")
@@ -41,4 +41,28 @@ fun main(args: Array<String>) {
 
     println("filter all pairs where the value has only lower case chars")
     println(CollectionOperations.filterMutableMapStringToStringValuesIfAllCharsAreLowerCase(CollectionData.fillOutMapOfStringToString()))
+
+    println("sums up one to nine:")
+    println(CollectionOperations.sumUpAListOfInt())
+
+    println("sums up all keys, if they are digits:")
+    println(CollectionOperations.sumsUpMutableMapStringToStringKeys(CollectionData.fillOutMapOfStringToString()))
+
+    println("sums up all keys from right to left, if they are digits:")
+    println(CollectionOperations.sumsUpMutableMapStringToStringKeysFromEndToStart(CollectionData.fillOutMapOfStringToString()))
+
+    println("sums up all keys and values if they are digits:")
+    println(CollectionOperations.sumsUpMutableMapStringToStringKeysAndValues(CollectionData.fillOutMapOfStringToString()))
+
+    println("filter out all Strings:")
+    println(CollectionOperations.filterStringsOutOfMutableMapAnyToAny(CollectionData.fillOutMapOfAnyToAny()))
+
+
+
+
+    println("\n\ninput(keys = int, values = string):")
+    println(CollectionData.fillOutMapOfAnyToAny2())
+
+    println("filter out all Strings:")
+    println(CollectionOperations.filterStringsOutOfMutableMapAnyToAny(CollectionData.fillOutMapOfAnyToAny2()))
 }
