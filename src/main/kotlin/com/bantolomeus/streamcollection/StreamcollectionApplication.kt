@@ -57,6 +57,17 @@ fun main(args: Array<String>) {
     println("filter out all Strings:")
     println(CollectionOperations.filterStringsOutOfMutableMapAnyToAny(CollectionData.fillOutMapOfAnyToAny()))
 
+    val i = null
+    println("Null check on type Int?. Returns 0 if it is null else the given int. Input: $i")
+    println(CollectionOperations.checkForNullOnInt(i))
+
+    val k = 435
+    println("Null check on type Int?. Returns 0 if it is null else the given int. Input: $k")
+    println(CollectionOperations.checkForNullOnInt(k))
+
+    println("uses functional composition to add 5 to the input and then multiply it by 2:")
+    println(CollectionOperations.add5andMultiplyBy2(2))
+
 
 
 

@@ -1,6 +1,7 @@
 package com.bantolomeus.streamcollection
 
 import org.springframework.stereotype.Service
+import org.funktionale.composition.andThen
 
 @Service
 class CollectionOperations {
@@ -78,6 +79,25 @@ class CollectionOperations {
             return map.filter{ it.key is String }.map { it.key.toString()}.plus(map.filter { it.value is String }.map { it.value.toString() })
         }
 
+        fun checkForNullOnInt(value: Int?): Int {
+            value?.let { myValue -> return myValue }
+            return 0
+        }
+
+        fun add5andMultiplyBy2(value: Int): Int {
+            val add5 = { i: Int -> i + 5 }
+            val multiplyBy2 = { i: Int -> i * 2 }
+            val add5andMultiplyBy2 = add5 andThen multiplyBy2
+            return add5andMultiplyBy2(value)
+        }
+
+        private fun powerBy2(value: Int):Int {
+            return value * value
+        }
+
+//        fun calculatePowerFunction(value1: Int, exponent: Int): Int {
+//            return mit times value1 value2 mal mit sich selbst multiplizieren
+//        }
 
 
     }
